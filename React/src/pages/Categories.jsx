@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Category } from "../components/ecom-ui";
 import { getCategories } from "../state/categorySlice";
+import { GridList } from "../components/Layout";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -10,16 +11,11 @@ const Categories = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
-  const categories = records.map((item) => (
-    <Category
-      key={item.id}
-      {...item}
-    />
-  ));
-
   return (
     <div>
-      <div className="grid">{categories}</div>
+      <GridList items={records}>
+        <Category />
+      </GridList>
     </div>
   );
 };
