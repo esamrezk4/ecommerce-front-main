@@ -1,0 +1,28 @@
+.category {
+  width: 180px;
+  height: 180px;
+}
+
+.categoryImg {
+  overflow: hidden;
+  border-radius: 50%;
+}
+.categoryImg img {
+  width: 100%;
+}
+
+.categoryTitle {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.categoryLink {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #0dcaf0;
+}
+
+.categoryLink:hover {
+  color: #0dcaf0;
+  text-decoration: underline;
+}
