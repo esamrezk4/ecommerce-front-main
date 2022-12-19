@@ -13,7 +13,11 @@ const Categories = () => {
 
   return (
     <div>
-      <GridList items={records}>
+      <GridList
+        items={records}
+        loading={loading}
+        error={error}
+      >
         <Category />
       </GridList>
     </div>

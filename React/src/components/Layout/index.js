@@ -1,3 +1,4 @@
 import Header from "./Header/Header";
 import GridList from "./GridList/GridList";
-export { Header, GridList };
+import Loading from "./Loading/Loading";
+export { Header, GridList, Loading };
