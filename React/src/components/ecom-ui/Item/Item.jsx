@@ -1,8 +1,15 @@
 import { Button } from "react-bootstrap";
 import styles from "./styles.module.css";
+import { useDispatch } from "react-redux";
 
-const Item = ({ btnText, btnAction, id, title, price, img }) => {
+const Item = ({ btnText, actionType, id, title, price, img }) => {
   const { item } = styles;
+  const dispatch = useDispatch();
+  const actionHandeler = () => {
+    if (actionType === "add") {
+      dispatch({ type: "cart/addToCart", payload: id });
+    }
+  };
 
   return (
     <div className={item}>
@@ -14,7 +21,7 @@ const Item = ({ btnText, btnAction, id, title, price, img }) => {
       <h3>{price} EGP</h3>
       <Button
         variant="info"
-        onClick={btnAction}
+        onClick={actionHandeler}
       >
         {btnText || "Add to card"}
       </Button>

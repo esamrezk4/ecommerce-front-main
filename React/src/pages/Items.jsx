@@ -22,7 +22,7 @@ const Items = () => {
         loading={loading}
         error={error}
       >
-        <Item />
+        <Item actionType="add" />
       </GridList>
     </div>
   );
