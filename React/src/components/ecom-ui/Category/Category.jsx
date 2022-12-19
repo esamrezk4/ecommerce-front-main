@@ -1,10 +1,10 @@
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-const Category = ({ id, title, img }) => {
+const Category = ({ prefix, title, img }) => {
   const { category, categoryImg, categoryTitle, categoryLink } = styles;
   return (
     <Link
-      to={`${id}/items`}
+      to={`${prefix}/items`}
       className={categoryLink}
     >
       <div className={category}>
