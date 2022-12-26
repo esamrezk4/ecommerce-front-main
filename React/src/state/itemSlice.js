@@ -22,6 +22,11 @@ const itemSlice = createSlice({
   name: "items",
 
   initialState,
+  reducers: {
+    cleanRecords(state) {
+      state.records = [];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(filterItems.pending, (state) => {
       state.loading = true;

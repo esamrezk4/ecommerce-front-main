@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { totalCartQuantity } from "../../../state/CartSlice";
 import { Badge } from "react-bootstrap";
 import shoppingCardImg from "../../../assets/shopping-card.svg";
 import { NavLink } from "react-router-dom";
@@ -14,6 +16,9 @@ const Header = () => {
     secNav,
     activeLink,
   } = styles;
+
+  const totalQuantity = useSelector(totalCartQuantity);
+
   return (
     <header className={header}>
       <div className={headerTop}>
@@ -26,7 +31,7 @@ const Header = () => {
             src={shoppingCardImg}
             width="30"
           />
-          <div className={shoppingCartCounter}>0</div>
+          <div className={shoppingCartCounter}>{totalQuantity}</div>
         </div>
       </div>
 
