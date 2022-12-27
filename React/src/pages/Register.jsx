@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -7,7 +8,13 @@ const Register = () => {
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
-            Already registered? <span className="link-primary">Sign In</span>
+            Already registered?{" "}
+            <NavLink
+              className="link-primary"
+              to="/login"
+            >
+              Sign In
+            </NavLink>
           </div>
           <div className="form-group mt-3">
             <label>Full Name</label>

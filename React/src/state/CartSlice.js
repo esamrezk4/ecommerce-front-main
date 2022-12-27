@@ -20,7 +20,6 @@ const CartSlice = createSlice({
 export const totalCartQuantity = createSelector(
   (state) => state.cart.items,
   (items) => {
-    console.log("item", items);
     let totalQuantity = 0;
     for (const id in items) {
       totalQuantity += items[id];

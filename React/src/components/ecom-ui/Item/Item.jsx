@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 
 const Item = ({ btnText, actionType, id, title, price, img }) => {
   const { item } = styles;
-  console.log("id", id);
   const dispatch = useDispatch();
   const actionHandeler = () => {
     if (actionType === "add") {
