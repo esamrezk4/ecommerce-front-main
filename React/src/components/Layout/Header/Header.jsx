@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { totalCartQuantity } from "../../../state/CartSlice";
 import { Badge } from "react-bootstrap";
@@ -15,9 +16,27 @@ const Header = () => {
     mainNav,
     secNav,
     activeLink,
+    bumpCard,
   } = styles;
 
+  const [isAnimateCard, setIsAnimateCard] = useState(false);
+
   const totalQuantity = useSelector(totalCartQuantity);
+  const cardClasses = `${shoppingCartCounter} ${isAnimateCard ? bumpCard : ""}`;
+
+  useEffect(() => {
+    if (totalQuantity === 0) {
+      return;
+    }
+    setIsAnimateCard(true);
+    const debounce = setTimeout(() => {
+      setIsAnimateCard(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [totalQuantity]);
 
   return (
     <header className={header}>
@@ -31,7 +50,7 @@ const Header = () => {
             src={shoppingCardImg}
             width="30"
           />
-          <div className={shoppingCartCounter}>{totalQuantity}</div>
+          <div className={cardClasses}>{totalQuantity}</div>
         </div>
       </div>
 
